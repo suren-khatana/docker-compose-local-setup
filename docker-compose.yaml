@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  postgresdb:
+    container_name: postgres-db
+    image: postgres-db
+    build: 
+      context: postgres-config
+    volumes:
+      - ./postgres-vol:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: postgres
+
+  idsvr:
+    container_name: curity-idsvr
+    image: curity-idsvr
+    build: 
+      context: idsvr-config
+    ports:
+      - "6749:6749"
+      - "8443:8443"
+    environment:
+      PASSWORD: password123
+      LOGGING_LEVEL: DEBUG
+    links:
+      - postgresdb
+  
