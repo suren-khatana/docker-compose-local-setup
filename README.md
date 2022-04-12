@@ -33,6 +33,11 @@ If needed, you can also get a free community edition license from the [Curity De
     ```sh
      docker logs -f curity-idsvr
     ```
+
+ 4. Clean up
+    ```sh
+     ./tear-down.sh
+    ```
 ## Use the System
 
 After the installation is completed, you will have a fully working system:

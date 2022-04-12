@@ -9,7 +9,7 @@ services:
     volumes:
       - ./postgres-vol:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - 5432:5432
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: password123
@@ -21,8 +21,8 @@ services:
     build: 
       context: idsvr-config
     ports:
-      - "6749:6749"
-      - "8443:8443"
+      - 6749:6749
+      - 8443:8443
     environment:
       PASSWORD: password123
       LOGGING_LEVEL: DEBUG
