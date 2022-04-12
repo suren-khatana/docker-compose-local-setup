@@ -38,6 +38,9 @@ If needed, you can also get a free community edition license from the [Curity De
     ```sh
      ./tear-down.sh
     ```
+
+
+
 ## Use the System
 
 After the installation is completed, you will have a fully working system:
@@ -47,6 +50,15 @@ After the installation is completed, you will have a fully working system:
 - A SQL based postgres database from which users, tokens, sessions and audit information can be queried
 - A [SCIM 2.0 API & GraphQL](https://localhost:6749/admin/#/profiles/user-management/user-management/endpoints) endpoints for managing user accounts
 - A working [DevOps dashboard](https://localhost:6749/admin/dashboard) for delegated administration
+
+
+
+## Managing the Server Configuration
+The default server configuration is stored in the `idsvr-config/server-config.xml` and it is imported in to the server docker image during the creation of the docker images.
+Any updates made to the system configuration would persist identity server restarts, however if the containers are deleted then the updates are lost and system is reset to the default configuration state.
+
+It is recommended to back up and [export configuration](https://curity.io/docs/idsvr/latest/configuration-guide/backup.html) when needed. Backedup configuration could be imported in to the server either using the Admin UI or by copying the configuration xml file to idsvr-config directory and re-building the docker image.
+
 
 
 

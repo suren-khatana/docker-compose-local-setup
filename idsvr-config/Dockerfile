@@ -5,7 +5,7 @@ FROM curity.azurecr.io/curity/idsvr:latest
 COPY license.json /opt/idsvr/etc/init/license/
 
 # Copy idsvr custom config 
-COPY server-config.xml /opt/idsvr/etc/init/
+COPY *.xml /opt/idsvr/etc/init/
 
 # Extra tools - for development troubleshooting only
 USER root
