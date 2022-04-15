@@ -23,19 +23,23 @@ If needed, you can also get a free community edition license from the [Curity De
     ```sh
     git clone https://github.com/suren-khatana/docker-compose-local-setup.git
     cd docker-compose-local-setup
+    ```
+ 2. Build the environment  
+     ```sh
     ./build-env.sh
     ```
- 2. Start & Stop 
+    
+ 3. Start & Stop 
     ```sh
      docker-compose start
      docker-compose stop
     ```
- 3. Logs
+ 4. Logs
     ```sh
      docker logs -f curity-idsvr
     ```
 
- 4. Clean up
+ 5. Clean up
     ```sh
      ./tear-down.sh
     ```
