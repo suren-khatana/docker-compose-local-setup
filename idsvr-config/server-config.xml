@@ -1,7 +1,7 @@
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <environments xmlns="https://curity.se/ns/conf/base">
     <environment>
-      <base-url>https://localhost:8443</base-url>
+      <base-url>https://login.curity.local</base-url>
       <cluster>
         <keystore>v:S.TWRBNUdTODJHV0cwWGRWMA==.hWNhWGeWY5nVXuZCLAAE/w==.5ZyEhGuy6IWCbOER9tT5+bQFQ19AOjKW9VWSNgoAth7l/BaDR3Mv4n3oMbhTJx+HfMAJynIMZpbgiT/uGSrbsVjtykPdZpyKo+x7YV/6G2yrcD8ZHc72uLRxU73RbBnLy378TH2pAZ5/Y9ehqwvtV2JmU+12I+6dXNovSazVgpH6r6Q69bsZG60wMVpIt5uH5JnGR9c9+v/qLYogUbEEFwe6/Jo+/Gy17lrth8uHjtN3y4/yqYUFEqLbRqPZnKenaRplD6ktaz+BKuFjstsxP66d3zFrwpz3WTxhoKKYT794KQayZy/8y5xuk5gdsK4EuW/e6OpqRRI8rk/3LKwT0slPD2S3Gbk2rnUyybE9DiCXF/FyIrNA3mUP3ZhKYWKb8ShU214hef0eKHWO0wc/IDnbFSA0ANNFFowJr/op6AXbublEUKbG4zHPcP4z+MQJwYeeXYqVUqwvZfpXSquB5cQN+ZMk6TraJQUgRag41zgw7PSvUcYCbCCG55PqIhG75RLie/HenwE3K/feazEc2nM+tMyOj6AhqNyYZRlxaooIlXUNzmdW7/ICjlBu/V3TzSXPCejJpOwFw6mD0xXcAXIBLdNqGyaKTYLKD0u9O3tzoz7K6I+9ZlgOawffE7U/w+3nWvWCQXhHy04V2bHwcJebTZEKn7HpMMBvh9bJ5UiFhagm1s/SJs+eRY4LaVBZli1vKrwMDeeOPak/ufR9w/8U15dGoWrLifyTnc2CfAzPsg8aVlx8ivdK4/iyMipqJqeKlvQIByyb4b89ykrPUmHfKArYQFAjhWqh+j5VFFF65/BAFEnAZn26W66ZTIPtrHLGmzJwWxe9mszg5f/HUgR6VlZxD624WeN4mQVAWneolLgTfeZibRExlYY/ct+6DyMp/4r2bC76XSLhquEC/fHM9+AZNEX2lN/lmLcY+tp63M8GvvB1EoJKxIX+iDIn+IiCHvo+nO3rcmRJUhyewH7x1sHu0NZemOWIDILWL4a3Afha/8jFstBPzLVYvD/hlZF3wFH3xMhlz8EonwlXXMJjXCfzo/+rB0R2Rq7hvhLd2cCbERsFJYQZcxoDRmV5SE7fptFOWJyr8Qx/jqhgx1373EG5ed9VNi4dqGeHANiGGIjavxdFR8bjjkiK3YbExU/75nQrL1DM8cuaoTHk2CeikMEJwSW7fLa/576/ygJoXkdr3YjyZMm42kPqIwseNbxlocv8Kj2ZjsshyZqodgOZdoKPVrj8zSYjnd+a50zMxak21sPI3JZwIBMnSCoGj5EJepLKgRKU2eHGYLpO6UFisil6cYWpG72NLg0mF3M1AYQfxEcTpRAGO97yoTb3C+IFFBscBL7QOVvcmPga+KkjY196qBKfxdyr7roqwy1ObQMjacyGOoYL94Ql3f+RhSt2ww1OPzj3ZenB7+N5HO23uU99EN0sJgw2WIopybDeNb7F4DIUOL+9MFcz4ye2EpBql9s9Vq8Mp0gqWlhJPEdHdseBnCe+GtbAdtyba889Mp5oSDShzumyr8ir0o7lnm+ECHuPOzRW882mMlEOYjHrRrrrezeLoNXc29d10Oo+jo5IxWw4/OG//0iXqVr1JrgO2onUCzfA01W8O+xxMH+CQKMgwKSxyzJ1hAyY+B0=.3OUM5UEhvPBK91tOOsE9IBsj9Tt1HABicqWPVwhKc+Q=.MIICzTCCAbWgAwIBAgIJAO80zsRqLehZMA0GCSqGSIb3DQEBCwUAMCYxJDAiBgNVBAMTG0N1cml0eUlkZW50aXR5U2VydmVyQ2x1c3RlcjAeFw0yMjA0MDYwODIwNDNaFw0zMjA0MDMwODIwNDNaMCYxJDAiBgNVBAMTG0N1cml0eUlkZW50aXR5U2VydmVyQ2x1c3RlcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKZ2HZhSDzGGi6As+eFRD9quuV7mh4FOu2HkMBE11bS6iqH2/DUiJqDag1djYNO1knMSGCg/o/mh/emgSXGlkMdyln0EveLXoNUjac+rBU//FOncCz9t32AwlUxuOEII0wbY0qPVw1fvsgulBcYUYpXWUYSf/M2Yk603XP0WAdAVW76hM/JqOs7fAN0lplkRPu/+V4UkoYeJM7/AvMA9qaHkPQaGqJZzN/UCa04jiTWUZ8BhMnvHoT74nuXYp5IcXkLkid1rdDLaN3QyyFxKbWUMi7+Xx9R7cjh4vJ8mFiZA+KkLem7/excXYJH2KqqANu/jdvHUfShyawXc2IoKdE8CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAoqihdmzEPbsKTsBAT+Bbvo8f9tyWoH1B/Dh0OuYgphh5CwC0AONB7kpm9k221yveVZMyDUHTz8NqC/96Cv45BjR4vi8L8kk4dQpidOjhNq/kBDuqZWeClPz1ZJLS7+8KIiDz7EWLIA35OWkXh5erWdpviWqLfVbQBFDzf2mjjkKuhdD/HQvh0wwcCh3xXnOG3SIPMBwdqgU2rtLvbNukg1PYRfpAEwh33fK4VW6st8Slc+O4ZFHW0e5ZCpjs4bCGB9KYRSkesA3MxWHD6awE0qLtk45Yq3DnuE54/G5B5xOuoXdfjMipbkMBJU5/Og9ya15EjGn3uJbVBDVeqCljDg==</keystore>
         <host>curity-idsvr-admin-svc</host>
@@ -10,7 +10,7 @@
       <admin-service>
         <http>
           <ssl-server-keystore>default-admin-ssl-key</ssl-server-keystore>
-          <base-url>https://localhost:6749</base-url>
+          <base-url>https://admin.curity.local</base-url>
           <web-ui>
           </web-ui>
           <restconf>
@@ -29,7 +29,7 @@
         <zones>
           <default-zone>
             <symmetric-key>data:text/plain;aes,v:S.ZnZqME1zNzI3U2NjZlNRVQ==.at2h-ZzWvCCiUU-xywbVng==.9byazl14Mvv-x_VpQXO7SU-VdthVTwLD5NWlPkIkb93typMgjv_BLWeurzH7_A6l7XcQ4lmyxe4yS4kjovty4dPFjPZToN5Dp4zhbtIuvwI=.p-u4cl6WnsoMUvDvUOsC9gry7zqjVFSPmdHQ-U08OJI=</symmetric-key>
-            <allowed-origins-for-cors>https://localhost:6749</allowed-origins-for-cors>
+            <allowed-origins-for-cors>https://admin.curity.local</allowed-origins-for-cors>
           </default-zone>
         </zones>
         <service-role>
@@ -374,7 +374,7 @@
                 <description>The OAuth client that is used to login to the DevOps dashboard.</description>
                 <logo>data:image/svg+xml;base64,CjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2MHB4IgoJIGhlaWdodD0iMTYwcHgiIHZpZXdCb3g9IjAgMCA0My42IDQzLjYiIHN0eWxlPSJvdmVyZmxvdzp2aXNpYmxlO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDMuNiA0My42OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzYyNkM4NztzdHJva2Utd2lkdGg6MS4xMDQ1O3N0cm9rZS1taXRlcmxpbWl0OjEwO30KCS5zdDF7ZmlsbDojNjM2RDg2O30KCS5zdDJ7ZmlsbDojNjI2Qzg3O30KCS5zdDN7ZmlsbDpub25lO3N0cm9rZTojNjI2Qzg3O3N0cm9rZS13aWR0aDoxLjEwNDU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQo8L3N0eWxlPgo8ZGVmcz4KPC9kZWZzPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzksNDNINC42Yy0yLjIsMC00LTEuOC00LTRWNC42YzAtMi4yLDEuOC00LDQtNEgzOWMyLjIsMCw0LDEuOCw0LDRWMzlDNDMsNDEuMiw0MS4yLDQzLDM5LDQzeiIvPgo8Y2lyY2xlIGNsYXNzPSJzdDEiIGN4PSI2LjQiIGN5PSI0LjQiIHI9IjEuNCIvPgo8Y2lyY2xlIGNsYXNzPSJzdDEiIGN4PSIxMi4yIiBjeT0iNC40IiByPSIxLjQiLz4KPGNpcmNsZSBjbGFzcz0ic3QxIiBjeD0iMTcuOSIgY3k9IjQuNCIgcj0iMS40Ii8+CjxnPgoJPGc+CgkJPHBhdGggY2xhc3M9InN0MiIgZD0iTTMxLjksMjZsLTAuMywwLjNjLTEuNSwxLjUtMy4zLDIuMy01LDIuM2MtMi43LDAtNC43LTItNC43LTQuOGMwLTIuOCwxLjktNC44LDQuNi00LjhjMS42LDAsMy40LDAuNyw0LjcsMS44CgkJCWwwLjMsMC4ybDIuNi0yLjdsLTAuMy0wLjJjLTItMS43LTQuOC0yLjctNy41LTIuN2MtMywwLTUuNSwxLjQtNywzLjVoLTQuN2wtMC4zLDIuM2gzLjljLTAuMSwwLjQtMC4yLDAuOS0wLjMsMS4zSDEybC0wLjMsMi4zCgkJCWg2LjFjMC4xLDAuNSwwLjEsMC45LDAuMywxLjNoMGgtMC4zSDkuM2wtMC4zLDIuM2g4LjdoMC4zaDEuMWMxLjUsMi4yLDQuMSwzLjUsNy4yLDMuNWMzLjksMCw2LjYtMiw3LjktMy4ybDAuMy0wLjNMMzEuOSwyNnoiLz4KCQk8cG9seWdvbiBjbGFzcz0ic3QyIiBwb2ludHM9IjExLjQsMjIuNiA5LjYsMjIuNiA5LjQsMjQuOSAxMS4xLDI0LjkgCQkiLz4KCTwvZz4KPC9nPgo8bGluZSBjbGFzcz0ic3QzIiB4MT0iMC42IiB5MT0iOC4zIiB4Mj0iNDMiIHkyPSI4LjMiLz4KPC9zdmc+Cg==</logo>
                 <no-authentication>true</no-authentication>
-                <redirect-uris>https://localhost:6749/admin/dashboard/assisted.html</redirect-uris>
+                <redirect-uris>https://admin.curity.local/admin/dashboard/assisted.html</redirect-uris>
                 <proof-key>
                   <require-proof-key>true</require-proof-key>
                 </proof-key>
@@ -384,9 +384,9 @@
                 <scope>openid</scope>
                 <scope>urn:se:curity:scopes:admin:api</scope>
                 <user-authentication>
-                  <allowed-post-logout-redirect-uris>https://localhost:6749/admin/dashboard/assisted.html</allowed-post-logout-redirect-uris>
+                  <allowed-post-logout-redirect-uris>https://admin.curity.local/admin/dashboard/assisted.html</allowed-post-logout-redirect-uris>
                 </user-authentication>
-                <allowed-origins>https://localhost:6749</allowed-origins>
+                <allowed-origins>https://admin.curity.local</allowed-origins>
                 <capabilities>
                   <code>
                   </code>

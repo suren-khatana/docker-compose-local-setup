@@ -41,6 +41,22 @@ If needed, you can also get a free community edition license from the [Curity De
 
 
 
+## Trust self-signed root CA certificate
+
+Add the self signed root ca certificate (ca/curity.local.ca.pem ) to operating system trust store.<br>
+For mac, please refer to https://support.apple.com/guide/keychain-access/add-certificates-to-a-keychain-kyca2431/mac <br> <br>
+![root ca configuration](./docs/ca-trust.png "Root ca trust configuration")
+
+
+
+For windows, please refer to https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate
+
+## 
+Add following to hosts file
+ ```
+  127.0.0.1  admin.curity.local login.curity.local
+ ```
+
 ## Use the System
 
 After the installation is completed, you will have a fully working system:
