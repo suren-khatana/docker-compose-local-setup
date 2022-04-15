@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:1.21.6
 
 # Copy custom nginx configuration 
 COPY ./reverse-proxy/nginx.conf /etc/nginx/nginx.conf
