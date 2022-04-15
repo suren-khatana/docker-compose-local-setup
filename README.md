@@ -43,7 +43,7 @@ If needed, you can also get a free community edition license from the [Curity De
 
 ## Trust self-signed root CA certificate
 
-Add the self signed root ca certificate (ca/curity.local.ca.pem ) to operating system trust store.<br>
+Add the self signed root ca certificate (certs/curity.local.ca.pem) to operating system trust store.<br>
 For mac, please refer to https://support.apple.com/guide/keychain-access/add-certificates-to-a-keychain-kyca2431/mac <br> <br>
 ![root ca configuration](./docs/ca-trust.png "Root ca trust configuration")
 
@@ -59,11 +59,11 @@ Add following to hosts file
 
 After the installation is completed, you will have a fully working system:
 
-- [OAuth and OpenID Connect Endpoints](https://localhost:8443/~/.well-known/openid-configuration) used by applications
-- A rich [Admin UI](https://localhost:6749/admin) for configuring applications and their security behavior
+- [OAuth and OpenID Connect Endpoints](https://login.curity.local/~/.well-known/openid-configuration) used by applications
+- A rich [Admin UI](https://admin.curity.local/admin) for configuring applications and their security behavior
 - A SQL based postgres database from which users, tokens, sessions and audit information can be queried
-- A [SCIM 2.0 API & GraphQL](https://localhost:6749/admin/#/profiles/user-management/user-management/endpoints) endpoints for managing user accounts
-- A working [DevOps dashboard](https://localhost:6749/admin/dashboard) for delegated administration
+- A [SCIM 2.0 API & GraphQL](https://admin.curity.local/admin/#/profiles/user-management/user-management/endpoints) endpoints for managing user accounts
+- A working [DevOps dashboard](https://admin.curity.local/admin/dashboard) for delegated administration
 
 
 
