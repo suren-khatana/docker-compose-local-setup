@@ -47,8 +47,6 @@ Add the self signed root ca certificate (ca/curity.local.ca.pem ) to operating s
 For mac, please refer to https://support.apple.com/guide/keychain-access/add-certificates-to-a-keychain-kyca2431/mac <br> <br>
 ![root ca configuration](./docs/ca-trust.png "Root ca trust configuration")
 
-
-
 For windows, please refer to https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate
 
 ## 
@@ -70,10 +68,9 @@ After the installation is completed, you will have a fully working system:
 
 
 ## Managing the Server Configuration
-The default server configuration is stored in the `idsvr-config/server-config.xml` and it is imported in to the server docker image during the creation of the docker images.
-Any updates made to the system configuration would persist identity server restarts, however if the containers are deleted then the updates are lost and system is reset to the default configuration state.
+The default server configuration is stored in the `idsvr-config/server-config.xml` and it is imported in to the server docker image during the creation of the docker images. Any updates made to the system configuration would persist identity server restarts, however if the containers are deleted then the updates are lost and system is reset to the default configuration state.
 
-It is recommended to back up and [export configuration](https://curity.io/docs/idsvr/latest/configuration-guide/backup.html) when needed. Backedup configuration could be imported in to the server either using the Admin UI or by copying the configuration xml file to idsvr-config directory and re-building the docker image.
+It is recommended to back up and [export configuration](https://curity.io/docs/idsvr/latest/configuration-guide/backup.html) when needed. Backedup configuration could be imported in to the server either by using the Admin UI or by copying the configuration xml file to idsvr-config directory and re-building the idsvr docker image.
 
 
 
