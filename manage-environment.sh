@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -eo pipefail
 
 display_help() {
     echo -e "Usage: $(basename "$0") [-h | --help] [-i | --install] [--start] [--stop]  [-d | --delete] [-b | --backup] \n" >&2

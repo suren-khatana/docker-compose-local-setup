@@ -4,7 +4,7 @@
 # A script to create some self signed certificates for the local system
 ######################################################################
 
-set -euo pipefail
+set -eo pipefail
 
 cd certs
 #
