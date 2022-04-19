@@ -81,7 +81,7 @@ stop_environment() {
 }
 
 idsvr_backup() {
-  echo -e "Backing up server configuration in to a file named server-config-backup-YYYY-MM-DD-hh-mm-ss.xml \n"
+  echo "Backing up server configuration in to a file named server-config-backup-YYYY-MM-DD-hh-mm-ss.xml"
   backup_file_name="server-config-backup-$(date +"%Y-%m-%d-%H-%M-%S").xml"
   docker exec curity-idsvr-admin idsvr -d > "$backup_file_name"
 
@@ -92,11 +92,11 @@ tear_down_environment() {
   read -p "Containers would be deleted, Are you sure? [Y/y N/n] :" -n 1 -r
   echo  #  Move to a new line
 
-  # Take backup before deletion
-  source ./backup-server-config.sh
-
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
+     # Take backup before deletion
+    idsvr_backup
+    echo -e "\n"
     # Stop the containers gracefully and then tear down
     docker-compose stop
     docker-compose rm --force
