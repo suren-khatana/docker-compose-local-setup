@@ -4,9 +4,9 @@
 # A script to create some self signed certificates for the local system
 ######################################################################
 
-cd certs
-set -e
+set -euo pipefail
 
+cd certs
 #
 # Point to the OpenSSL configuration file for macOS or Windows
 #

@@ -24,26 +24,31 @@ If needed, you can also get a free community edition license from the [Curity De
     git clone https://github.com/suren-khatana/docker-compose-local-setup.git
     cd docker-compose-local-setup
     ```
- 2. Build the environment  
+ 2. Install the environment  
      ```sh
-    ./build-env.sh
+    ./manage-environment.sh --install
     ```
     
  3. Start & Stop 
     ```sh
-     docker-compose start
-     docker-compose stop
+     ./manage-environment.sh --start
+     ./manage-environment.sh --stop
     ```
- 4. Logs
+
+ 4. Identity Server Backup 
     ```sh
-     docker logs -f curity-idsvr
+     ./manage-environment.sh --backup
     ```
 
  5. Clean up
     ```sh
-     ./tear-down.sh
+     ./manage-environment.sh --delete
     ```
 
+ 6. Logs
+    ```sh
+     docker logs -f curity-idsvr
+    ```
 
 
 ## Trust self-signed root CA certificate
@@ -73,12 +78,9 @@ After the installation is completed, you will have a fully working system:
 
 
 ## Managing the Server Configuration
-The default server configuration is stored in the `idsvr-config/server-config.xml` and it is imported in to the server docker image during the creation of the docker images. Any updates made to the system configuration would persist identity server restarts, however if the containers are deleted then the updates are lost and system is reset to the default configuration state.
+The default server configuration is stored in the `idsvr-config/server-config.xml` and it is imported in to the server during environment set up. Any updates made to the system configuration would persist identity server restarts, however if the containers are deleted then the updates are lost and system is reset to the default configuration state represented by `idsvr-config/server-config.xml`.
 
-It is recommended to back up and [export configuration](https://curity.io/docs/idsvr/latest/configuration-guide/backup.html) when needed. Backedup configuration could be imported in to the server either by using the Admin UI or by copying the configuration xml file to idsvr-config directory and re-building the idsvr docker image.
-
-
-
+It is recommended take Identity Server configuration back ups when needed. Backedup configuration could be imported in to the server either by using the Admin UI or by copying the back up configuration xml files to the idsvr-config directory and re-building the idsvr docker image.
 
 ## More Information
 

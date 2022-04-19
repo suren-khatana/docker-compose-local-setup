@@ -3,6 +3,9 @@ version: '3.9'
 services:
   reverseproxy:
     container_name: reverse-proxy
+    depends_on: 
+      - curity-idsvr-admin
+      - curity-idsvr-runtime
     image: reverse-proxy
     build:
       context: .
@@ -26,11 +29,10 @@ services:
       POSTGRES_DB: postgres
     restart: always
 
-  idsvr:
-    container_name: curity-idsvr
-    depends_on:
-      - reverseproxy 
+  curity-idsvr-admin: # admin node
+    container_name: curity-idsvr-admin
     image: curity-idsvr
+    command: ["sh", "-c", "idsvr -s admin"]
     build: 
       context: idsvr-config
     environment:
@@ -40,3 +42,16 @@ services:
       - postgresdb
     restart: always
   
+  curity-idsvr-runtime: # runtime-node
+    container_name: curity-idsvr-runtime
+    depends_on: 
+      - curity-idsvr-admin
+    image: curity-idsvr
+    build: 
+      context: idsvr-config
+    environment:
+      SERVICE_ROLE: default
+      LOGGING_LEVEL: DEBUG
+    links:
+      - postgresdb
+    restart: always
