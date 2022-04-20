@@ -48,7 +48,8 @@ If needed, you can also get a free community edition license from the [Curity De
 
  6. Logs
     ```sh
-     docker logs -f curity-idsvr
+     docker logs -f curity-idsvr-admin
+     docker logs -f curity-idsvr-runtime
     ```
 
 
