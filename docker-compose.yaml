@@ -6,19 +6,23 @@ services:
     depends_on: 
       - curity-idsvr-admin
       - curity-idsvr-runtime
-    image: reverse-proxy
+    image: reverse-proxy:local
     build:
       context: .
       dockerfile: ./reverse-proxy/Dockerfile
+      labels:
+        - "env=local"
     ports:
       - 443:443
     restart: always
 
   postgresdb:
     container_name: postgres-db
-    image: postgres-db
+    image: postgres-db:local
     build: 
       context: postgres-config
+      labels:
+        - "env=local"
     volumes:
       - ./postgres-vol:/var/lib/postgresql/data
     ports:
@@ -31,10 +35,12 @@ services:
 
   curity-idsvr-admin: # admin node
     container_name: curity-idsvr-admin
-    image: curity-idsvr
+    image: curity-idsvr:local
     command: ["sh", "-c", "idsvr -s admin"]
     build: 
       context: idsvr-config
+      labels:
+        - "env=local"
     environment:
       PASSWORD: password123
       LOGGING_LEVEL: DEBUG
@@ -46,9 +52,11 @@ services:
     container_name: curity-idsvr-runtime
     depends_on: 
       - curity-idsvr-admin
-    image: curity-idsvr
+    image: curity-idsvr:local
     build: 
       context: idsvr-config
+      labels:
+        - "env=local"
     environment:
       SERVICE_ROLE: default
       LOGGING_LEVEL: DEBUG

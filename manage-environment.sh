@@ -15,6 +15,20 @@ display_help() {
 }
 
 
+greeting_message() {
+  echo "|------------------------------------------------------------------|"
+  echo "|  Docker compose based Curity Identity Server Installation        |"
+  echo "|------------------------------------------------------------------|"
+  echo "| Following components are going to be installed :                 |"
+  echo "|------------------------------------------------------------------|"
+  echo "| [1] NGINX REVERSE PROXY                                          |"
+  echo "| [2] CURITY IDENTITY SERVER ADMIN NODE                            |"
+  echo "| [3] CURITY IDENTITY SERVER RUNTIME NODE                          |"
+  echo "| [4] POSTGRES DATABASE                                            |"
+  echo "|------------------------------------------------------------------|" 
+  echo -e "\n"
+}
+
 
 pre_requisites_check() {
   # Check if docker & docker-compose are installed
@@ -31,7 +45,7 @@ fi
 }
 
 is_pki_already_available() {
-  echo -e "Verifying whether the certificates are already available ..\n"
+  echo -e "Verifying whether the certificates are already available .."
   if [[ -f ./certs/curity.local.ssl.key && -f ./certs/curity.local.ssl.pem ]] ; then
     echo -e "curity.local.ssl.key & curity.local.ssl.pem certificates already exist.., skipping regeneration of certificates\n"
     true
@@ -56,17 +70,25 @@ build_environment() {
   echo -e "Building docker images and bringing up the environment ...\n"
   # Build & start the environment 
   docker-compose up --build -d
-  docker-compose ps
-
   echo -e "\n"
-  echo "****************************************** Connection Info *******************************************"
-  echo "Admin UI is available at https://admin.curity.local/admin                                             "
-  echo "DevOps dashboard UI is available at https://admin.curity.local/admin/dashboard                        "
-  echo "OpenID connect metadata is available at https://login.curity.local/~/.well-known/openid-configuration "
+  
+  docker-compose ps
+  echo -e "\n"
 
-  echo "Curity administrator username is 'admin' and password can be found in the docker-compose.yaml file    "
-  echo "******************************************************************************************************"
+}
 
+environment_info() {
+  echo "|-------------------------------------------------------------------------------------------------------|"
+  echo "|                      Environment URLS & Endpoints                                                     |"
+  echo "|-------------------------------------------------------------------------------------------------------|"
+  echo "|                                                                                                       |"
+  echo "| [ADMIN UI]          https://admin.curity.local/admin                                                  |"
+  echo "| [OIDC METADATA]     https://login.curity.local/~/.well-known/openid-configuration                     |"
+  echo "| [DEVOPS DASHBOARD]  https://admin.curity.local/admin/dashboard                                        |"
+  echo "|                                                                                                       |"
+  echo "| * Curity administrator username is 'admin' and password can be found in the docker-compose.yaml file  |"
+  echo "|-------------------------------------------------------------------------------------------------------|" 
+  echo -e "\n"
 }
 
 start_environment() {
@@ -81,25 +103,32 @@ stop_environment() {
 }
 
 idsvr_backup() {
-  echo "Backing up server configuration in to a file named server-config-backup-YYYY-MM-DD-hh-mm-ss.xml"
-  backup_file_name="server-config-backup-$(date +"%Y-%m-%d-%H-%M-%S").xml"
-  docker exec curity-idsvr-admin idsvr -d > "$backup_file_name"
+  # Create backups directory to hold backups
+  mkdir -p backups
+  
+  if [[ "$(docker ps -q -f status=running -f name=curity-idsvr-admin)" ]]
+  then
+    backup_file_name="server-config-backup-$(date +"%Y-%m-%d-%H-%M-%S").xml"
+    echo "Backing up server configuration in to a file named => $backup_file_name"
 
-  echo "Backup completed and stored in a file : $backup_file_name " 
+    docker exec curity-idsvr-admin idsvr -d > ./backups/"$backup_file_name"
+    echo "Backup completed and stored in a file => ./backups/$backup_file_name " 
+  else
+    echo "Backup couldn't be taken since the 'curity-idsvr-admin' container is not running.."
+  fi
+  
 }
 
 tear_down_environment() {
-  read -p "Containers would be deleted, Are you sure? [Y/y N/n] :" -n 1 -r
-  echo  #  Move to a new line
+  read -p "Containers & images would be deleted, Are you sure? [Y/y N/n] :" -n 1 -r
+  echo -e "\n"
 
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-     # Take backup before deletion
-    idsvr_backup
+    # Take backup before deletion if the containers are running
+    idsvr_backup || true
     echo -e "\n"
-    # Stop the containers gracefully and then tear down
-    docker-compose stop
-    docker-compose rm --force
+    docker-compose down --rmi all || true
   else
     echo "Aborting the operation .."
     exit 1
@@ -113,9 +142,11 @@ tear_down_environment() {
 
 case $1 in
   -i | --install)
+    greeting_message
     pre_requisites_check
     generate_self_signed_certificates
     build_environment
+    environment_info
     ;;
   --start)
     start_environment

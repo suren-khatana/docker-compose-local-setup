@@ -16,7 +16,8 @@ The system can be deployed on a MacOS or Windows workstation via a bash script, 
 
 Make sure you have above prerequisites installed and then copy a license file to the `idsvr-config/license.json` location.
 If needed, you can also get a free community edition license from the [Curity Developer Portal](https://developer.curity.io).
- 
+
+
 ## Installation
 
  1. Clone the repository
@@ -59,7 +60,9 @@ For mac, please refer to https://support.apple.com/guide/keychain-access/add-cer
 
 For windows, please refer to https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate
 
+
 ## 
+
 Add following to hosts file
  ```
   127.0.0.1  admin.curity.local login.curity.local
@@ -76,11 +79,12 @@ After the installation is completed, you will have a fully working system:
 - A working [DevOps dashboard](https://admin.curity.local/admin/dashboard) for delegated administration
 
 
-
 ## Managing the Server Configuration
+
 The default server configuration is stored in the `idsvr-config/server-config.xml` and it is imported in to the server during environment set up. Any updates made to the system configuration would persist identity server restarts, however if the containers are deleted then the updates are lost and system is reset to the default configuration state represented by `idsvr-config/server-config.xml`.
 
 It is recommended take Identity Server configuration back ups when needed. Backedup configuration could be imported in to the server either by using the Admin UI or by copying the back up configuration xml files to the idsvr-config directory and re-building the idsvr docker image.
+
 
 ## More Information
 
