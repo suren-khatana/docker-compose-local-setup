@@ -31,13 +31,13 @@ greeting_message() {
 
 
 pre_requisites_check() {
-  # Check if docker & docker-compose are installed
+# Check if docker & docker-compose are installed
 if ! [[ $(docker --version) && $(docker-compose --version) ]]; then
     echo "Please install docker and docker-compose to continue with the deployment .."
     exit 1 
 fi
 
-# Check for license availability
+# Check for license file
 if [ ! -f './idsvr-config/license.json' ]; then
   echo "Please copy a license.json file in the idsvr-config directory to continue with the deployment. License could be downloaded from https://developer.curity.io/"
   exit 1
@@ -79,7 +79,7 @@ build_environment() {
 
 environment_info() {
   echo "|-------------------------------------------------------------------------------------------------------|"
-  echo "|                      Environment URLS & Endpoints                                                     |"
+  echo "|                                Environment URLS & Endpoints                                           |"
   echo "|-------------------------------------------------------------------------------------------------------|"
   echo "|                                                                                                       |"
   echo "| [ADMIN UI]          https://admin.curity.local/admin                                                  |"
@@ -87,6 +87,7 @@ environment_info() {
   echo "| [DEVOPS DASHBOARD]  https://admin.curity.local/admin/dashboard                                        |"
   echo "|                                                                                                       |"
   echo "| * Curity administrator username is 'admin' and password can be found in the docker-compose.yaml file  |"
+  echo "| * Remember to add certs/curity.local.ca.pem to operating systems certificate trust store              |"
   echo "|-------------------------------------------------------------------------------------------------------|" 
   echo -e "\n"
 }
@@ -98,14 +99,14 @@ start_environment() {
 }
 
 stop_environment() {
-  echo -e "Stoping the environment ...\n"
+  echo -e "Stopping the environment ...\n"
   docker-compose stop
 }
 
 idsvr_backup() {
-  # Create backups directory to hold backups
+  # Create backups directory to hold backup xml files
   mkdir -p backups
-  
+
   if [[ "$(docker ps -q -f status=running -f name=curity-idsvr-admin)" ]]
   then
     backup_file_name="server-config-backup-$(date +"%Y-%m-%d-%H-%M-%S").xml"
@@ -120,7 +121,7 @@ idsvr_backup() {
 }
 
 tear_down_environment() {
-  read -p "Containers & images would be deleted, Are you sure? [Y/y N/n] :" -n 1 -r
+  read -p "containers & images would be deleted, Are you sure? [Y/y N/n] :" -n 1 -r
   echo -e "\n"
 
   if [[ $REPLY =~ ^[Yy]$ ]]
