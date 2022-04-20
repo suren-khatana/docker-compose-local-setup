@@ -87,7 +87,8 @@ environment_info() {
   echo "| [DEVOPS DASHBOARD]  https://admin.curity.local/admin/dashboard                                        |"
   echo "|                                                                                                       |"
   echo "| * Curity administrator username is 'admin' and password can be found in the docker-compose.yaml file  |"
-  echo "| * Remember to add certs/curity.local.ca.pem to operating systems certificate trust store              |"
+  echo "| * Remember to add certs/curity.local.ca.pem to operating systems certificate trust store  &           |"
+  echo "|   127.0.0.1  admin.curity.local login.curity.local entry to /etc/hosts                                |"
   echo "|-------------------------------------------------------------------------------------------------------|" 
   echo -e "\n"
 }
