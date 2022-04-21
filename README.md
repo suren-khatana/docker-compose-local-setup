@@ -53,6 +53,24 @@ If needed, you can also get a free community edition license from the [Curity De
     ```
 
 
+```sh
+   ./manage-environment.sh -h
+     Usage: manage-environment.sh [-h | --help] [-i | --install] [--start] [--stop]  [-d | --delete] [-b | --backup]
+
+   ** DESCRIPTION **
+   This script can be used to manage a docker compose based curity identity server installation including an external postgress datasource.
+
+   OPTIONS
+
+   --help      show this help message and exit
+   --install   installs the curity identity server environment
+   --start     starts the curity identity server environment
+   --stop      stops the curity identity server environment
+   --delete    deletes the docker compose environment
+   --backup    backup idsvr configuration
+
+```
+
 ## Trust self-signed root CA certificate
 
 Add the self signed root ca certificate (certs/curity.local.ca.pem) to operating system trust store.<br>
