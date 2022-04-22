@@ -36,6 +36,11 @@ If needed, you can also get a free community edition license from the [Curity De
      ./manage-environment.sh --stop
     ```
 
+ 4. Scan Idsvr for security vulnerabilities
+    ```sh
+     ./manage-environment.sh --scan
+    ```
+
  4. Identity Server Backup 
     ```sh
      ./manage-environment.sh --backup
@@ -55,7 +60,7 @@ If needed, you can also get a free community edition license from the [Curity De
 
 ```sh
    ./manage-environment.sh -h
-     Usage: manage-environment.sh [-h | --help] [-i | --install] [--start] [--stop]  [-d | --delete] [-b | --backup]
+     Usage: manage-environment.sh [-h | --help] [-i | --install] [--start] [--stop] [--scan] [-d | --delete] [-b | --backup]
 
    ** DESCRIPTION **
    This script can be used to manage a docker compose based curity identity server installation including an external postgress datasource.
@@ -66,6 +71,7 @@ If needed, you can also get a free community edition license from the [Curity De
    --install   installs the curity identity server environment
    --start     starts the curity identity server environment
    --stop      stops the curity identity server environment
+   --scan      scans the curity identity server for security vulnerabilities
    --delete    deletes the docker compose environment
    --backup    backup idsvr configuration
 

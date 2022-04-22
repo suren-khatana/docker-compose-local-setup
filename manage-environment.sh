@@ -6,12 +6,13 @@ display_help() {
     echo "** DESCRIPTION **"
     echo -e "This script can be used to manage a docker compose based curity identity server installation including an external postgress datasource. \n"
     echo -e "OPTIONS \n"
-    echo " --help      show this help message and exit                   "
-    echo " --install   installs the curity identity server environment   "
-    echo " --start     starts the curity identity server environment     "
-    echo " --stop      stops the curity identity server environment      "
-    echo " --delete    deletes the docker compose environment            "
-    echo " --backup    backup idsvr configuration                        "  
+    echo " --help      show this help message and exit                                                  "
+    echo " --install   installs the curity identity server environment                                  "
+    echo " --start     starts the curity identity server environment                                    "
+    echo " --stop      stops the curity identity server environment                                     "
+    echo " --scan      scans the curity identity server docker image for security vulnerabilities       "
+    echo " --delete    deletes the docker compose environment                                           "
+    echo " --backup    backup idsvr configuration                                                       "  
 }
 
 
@@ -196,6 +197,9 @@ case $1 in
     ;;
   --stop)
     stop_environment
+    ;;
+  --scan)
+    scan_idsvr_docker_image
     ;;
   -d | --delete)
     tear_down_environment
