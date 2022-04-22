@@ -29,6 +29,17 @@ greeting_message() {
   echo -e "\n"
 }
 
+find_host() {
+  echo "Determining OS Type.. "
+  unameOut="$(uname -s)"
+  case "${unameOut}" in
+    Linux*)     ostype=Linux;;
+    Darwin*)    ostype=Mac;;
+    *)          ostype="UNKNOWN:${unameOut}"
+  esac;
+  export OS_TYPE=${ostype}
+  echo "Host is detected as ${OS_TYPE}"
+}
 
 pre_requisites_check() {
 # Check if docker & docker-compose are installed
@@ -42,7 +53,32 @@ if [ ! -f './idsvr-config/license.json' ]; then
   echo "Please copy a license.json file in the idsvr-config directory to continue with the deployment. License could be downloaded from https://developer.curity.io/"
   exit 1
 fi
+
+# Detemine the host OS type
+find_host
+
+# Check if trivy is installed
+if ! [[ $(trivy --version) ]]; then
+    if [[ $OS_TYPE == Mac ]]; then
+        echo "Trivy is not installed, setting it up .."
+        brew install aquasecurity/trivy/trivy     
+    fi
+    
+fi
+
 }
+
+
+scan_idsvr_docker_image(){
+  echo "|--------------------------------------------------------------------------------------------------------|"
+  echo " Scanning Identity server docker image for HIGH & CRITICAL securtiy vulnerabilities ....                 "
+  echo -e "\n"
+  trivy image --severity HIGH,CRITICAL curity-idsvr:local
+  echo "|--------------------------------------------------------------------------------------------------------|"
+  echo -e "\n\n"
+
+}
+
 
 is_pki_already_available() {
   echo -e "Verifying whether the certificates are already available .."
@@ -72,12 +108,14 @@ build_environment() {
   docker-compose up --build -d
   echo -e "\n"
   
-  docker-compose ps
-  echo -e "\n"
-
 }
 
 environment_info() {
+  echo "Environment Installation Status :"
+  echo -e "\n"
+  docker-compose ps
+  echo -e "\n\n"
+
   echo "|-------------------------------------------------------------------------------------------------------|"
   echo "|                                Environment URLS & Endpoints                                           |"
   echo "|-------------------------------------------------------------------------------------------------------|"
@@ -148,6 +186,9 @@ case $1 in
     pre_requisites_check
     generate_self_signed_certificates
     build_environment
+    if [[ $OS_TYPE == Mac ]]; then
+      scan_idsvr_docker_image    
+    fi  
     environment_info
     ;;
   --start)
