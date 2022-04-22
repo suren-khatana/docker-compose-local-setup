@@ -13,6 +13,7 @@ The system can be deployed on a MacOS or Windows workstation via a bash script, 
 * [Docker](https://docs.docker.com/get-docker/)
 * [Docker compose](https://docs.docker.com/compose/install/)
 * [OpenSSL](https://www.openssl.org/)
+* [Trivy](https://aquasecurity.github.io/trivy) - It will be installed automatically if not already installed.
 
 Make sure you have above prerequisites installed and then copy a license file to the `idsvr-config/license.json` location.
 If needed, you can also get a free community edition license from the [Curity Developer Portal](https://developer.curity.io).
