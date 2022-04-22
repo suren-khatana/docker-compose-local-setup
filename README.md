@@ -41,17 +41,17 @@ If needed, you can also get a free community edition license from the [Curity De
      ./manage-environment.sh --scan
     ```
 
- 4. Identity Server Backup 
+ 5. Identity Server Backup 
     ```sh
      ./manage-environment.sh --backup
     ```
 
- 5. Clean up
+ 6. Clean up
     ```sh
      ./manage-environment.sh --delete
     ```
 
- 6. Logs
+ 7. Logs
     ```sh
      docker logs -f curity-idsvr-admin
      docker logs -f curity-idsvr-runtime
