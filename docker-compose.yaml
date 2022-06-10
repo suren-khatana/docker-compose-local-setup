@@ -4,8 +4,9 @@ services:
   reverseproxy:
     container_name: reverse-proxy
     depends_on: 
-      - curity-idsvr-admin
-      - curity-idsvr-runtime
+      - curity-admin
+      - curity-runtime-external
+      - curity-runtime-internal
     image: reverse-proxy:local
     build:
       context: .
@@ -33,10 +34,10 @@ services:
       POSTGRES_DB: postgres
     restart: always
 
-  curity-idsvr-admin: # admin node
-    container_name: curity-idsvr-admin
+  curity-admin: # admin node
+    container_name: curity-admin
     image: curity-idsvr:local
-    command: ["sh", "-c", "idsvr -s admin"]
+    command: ["sh", "-c", "idsvr --service-role admin --service-name ADMIN --admin"]
     build: 
       context: idsvr-config
       labels:
@@ -48,10 +49,11 @@ services:
       - postgresdb
     restart: always
   
-  curity-idsvr-runtime: # runtime-node
-    container_name: curity-idsvr-runtime
+  curity-runtime-internal: # internal runtime-node
+    container_name: curity-runtime-internal
+    command: ["sh", "-c", "idsvr --service-role INTERNAL --service-name INTERNAL"]
     depends_on: 
-      - curity-idsvr-admin
+      - curity-admin
     image: curity-idsvr:local
     deploy:
       replicas: 1
@@ -60,7 +62,24 @@ services:
       labels:
         - "env=local"
     environment:
-      SERVICE_ROLE: default
+      LOGGING_LEVEL: DEBUG
+    links:
+      - postgresdb
+    restart: always
+
+  curity-runtime-external: # internet facing runtime-node
+    container_name: curity-runtime-external
+    command: ["sh", "-c", "idsvr --service-role EXTERNAL --service-name EXTERNAL"]
+    depends_on: 
+      - curity-admin
+    image: curity-idsvr:local
+    deploy:
+      replicas: 1
+    build: 
+      context: idsvr-config
+      labels:
+        - "env=local"
+    environment:
       LOGGING_LEVEL: DEBUG
     links:
       - postgresdb

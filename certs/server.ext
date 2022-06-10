@@ -1,1 +1,1 @@
-subjectAltName=DNS:curity.local,DNS:admin.curity.local,DNS:login.curity.local
+subjectAltName=DNS:curity.local,DNS:admin.curity.local,DNS:login-internal.curity.local,DNS:login-external.curity.local

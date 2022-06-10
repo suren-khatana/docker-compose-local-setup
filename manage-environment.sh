@@ -4,7 +4,7 @@ set -eo pipefail
 display_help() {
     echo -e "Usage: $(basename "$0") [-h | --help] [-i | --install] [--start] [--stop]  [-d | --delete] [-b | --backup] \n" >&2
     echo "** DESCRIPTION **"
-    echo -e "This script can be used to manage a docker compose based curity identity server installation including an external postgress datasource. \n"
+    echo -e "This script can be used to manage a docker compose based curity identity server installation including an external postgres datasource. \n"
     echo -e "OPTIONS \n"
     echo " --help      show this help message and exit                                                  "
     echo " --install   installs the curity identity server environment                                  "
@@ -55,7 +55,7 @@ if [ ! -f './idsvr-config/license.json' ]; then
   exit 1
 fi
 
-# Detemine the host OS type
+# Determine the host OS type
 find_host
 
 # Check if trivy is installed
@@ -96,7 +96,7 @@ is_pki_already_available() {
 
 generate_self_signed_certificates() {
   if ! is_pki_already_available ; then
-    echo -e "Generating neccessary self-signed certificates for secure communication ..\n"
+    echo -e "Generating necessary self-signed certificates for secure communication ..\n"
     source ./create-self-signed-certs.sh
   fi
 
@@ -147,15 +147,15 @@ idsvr_backup() {
   # Create backups directory to hold backup xml files
   mkdir -p backups
 
-  if [[ "$(docker ps -q -f status=running -f name=curity-idsvr-admin)" ]]
+  if [[ "$(docker ps -q -f status=running -f name=curity-admin)" ]]
   then
     backup_file_name="server-config-backup-$(date +"%Y-%m-%d-%H-%M-%S").xml"
     echo "Backing up server configuration in to a file named => $backup_file_name"
 
-    docker exec curity-idsvr-admin idsvr -d > ./backups/"$backup_file_name"
+    docker exec curity-admin idsvr -d > ./backups/"$backup_file_name"
     echo "Backup completed and stored in a file => ./backups/$backup_file_name " 
   else
-    echo "Backup couldn't be taken since the 'curity-idsvr-admin' container is not running.."
+    echo "Backup couldn't be taken since the 'curity-admin' container is not running.."
   fi
   
 }
@@ -188,7 +188,8 @@ case $1 in
     generate_self_signed_certificates
     build_environment
     if [[ $OS_TYPE == Mac ]]; then
-      scan_idsvr_docker_image    
+     # scan_idsvr_docker_image    
+      echo ""
     fi  
     environment_info
     ;;
