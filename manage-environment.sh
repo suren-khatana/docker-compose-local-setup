@@ -123,7 +123,7 @@ environment_info() {
   echo "|                                                                                                              |"
   echo "| [ADMIN UI]          https://admin.curity.local/admin                                                         |"
   echo "| [OIDC METADATA]     https://login-internal.curity.local/internal/~/.well-known/openid-configuration          |"
-  echo "| [OIDC METADATA]     https://login-external.curity.local/extrnal/~/.well-known/openid-configuration           |"
+  echo "| [OIDC METADATA]     https://login-external.curity.local/external/~/.well-known/openid-configuration          |"
   echo "| [DEVOPS DASHBOARD]  https://admin.curity.local/admin/dashboard                                               |"
   echo "|                                                                                                              |"
   echo "| * Curity administrator username is 'admin' and password can be found in the docker-compose.yaml file         |"
