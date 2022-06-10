@@ -58,6 +58,7 @@
           <endpoints>authentication-service-registration</endpoints>
           <endpoints>internal-anonymous</endpoints>
           <endpoints>internal-authorize</endpoints>
+          <endpoints>internal-introspect</endpoints>
           <endpoints>internal-revoke</endpoints>
           <endpoints>internal-session</endpoints>
           <endpoints>internal-token</endpoints>
@@ -636,6 +637,12 @@
           <endpoint-kind>oauth-authorize</endpoint-kind>
         </endpoint>
         <endpoint>
+          <id>internal-introspect</id>
+          <uri>/internal/oauth-introspect</uri>
+          <client-authentication>disallow</client-authentication>
+          <endpoint-kind>oauth-introspect</endpoint-kind>
+        </endpoint>
+        <endpoint>
           <id>internal-revoke</id>
           <uri>/internal/oauth-revoke</uri>
           <endpoint-kind>oauth-revoke</endpoint-kind>
@@ -669,8 +676,13 @@
     <profile>
       <id>authentication-service</id>
       <type xmlns:auth="https://curity.se/ns/conf/profile/authentication">auth:authentication-service</type>
+      <expose-detailed-error-messages/>
       <settings>
         <authentication-service xmlns="https://curity.se/ns/conf/profile/authentication">
+          <base-url>
+            <default-base-url>https://login-external.curity.local</default-base-url>
+            <additional-base-url>https://login-internal.curity.local</additional-base-url>
+          </base-url>
           <authenticators>
             <authenticator>
               <id>username_only</id>
